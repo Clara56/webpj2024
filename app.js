@@ -1,7 +1,6 @@
 
 const apiKey = '624955a25e97ad8263efa29e8bed9ac3';
 
-// Function to fetch movies based on search query
 const fetchMovies = async (query) => {
     try {
         const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`);
@@ -12,7 +11,6 @@ const fetchMovies = async (query) => {
     }
 };
 
-// Function to display movies on the page with clickable links
 const displayMovies = (movies) => {
     const movieList = document.getElementById('movie-list');
     movieList.innerHTML = movies.map(movie => `
@@ -27,7 +25,6 @@ const displayMovies = (movies) => {
     `).join('');
 };
 
-// Event listener for form submission
 document.getElementById('search-form').addEventListener('submit', (event) => {
     event.preventDefault();
     const query = document.getElementById('search-input').value;
