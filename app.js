@@ -72,7 +72,7 @@ const createSlideshow = async (language = 'en') => {
 
     for (const genre in genres) {
         const genreMovies = await fetchGenreMovies(genres[genre], language);
-        const slides = genreMovies.slice(0, 5); // Show 5 movies per genre
+        const slides = genreMovies.slice(0, 7); // Show 5 movies per genre
 
         // Create a genre section
         const genreSection = document.createElement('div');
@@ -145,5 +145,3 @@ document.getElementById('search-form').addEventListener('submit', async (e) => {
 // Initialize the page with the slideshow
 createSlideshow();
 
-// Initial fetch and display of movies (e.g., comedy, horror, romance)
-createSlideshow(); // Calling it again ensures it is loaded initially

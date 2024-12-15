@@ -10,8 +10,125 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     padding-top: 50px;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+    position: relative; /* Added for cloud positioning */
 }
+
+/* New Cloud and Rainbow Elements */
+.rainbow-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg, 
+        rgba(255,0,0,0.3),    /* Red */
+        rgba(255,165,0,0.3),  /* Orange */
+        rgba(255,255,0,0.3),  /* Yellow */
+        rgba(0,128,0,0.3),    /* Green */
+        rgba(0,0,255,0.3),    /* Blue */
+        rgba(75,0,130,0.3),   /* Indigo */
+        rgba(238,130,238,0.3) /* Violet */
+    );
+    opacity: 0.5;
+    z-index: 1;
+    animation: rainbow-shift 10s ease infinite;
+}
+
+@keyframes rainbow-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud-1 {
+    width: 200px;
+    height: 60px;
+    top: 10%;
+    left: -200px;
+    animation: move-cloud-1 20s linear infinite;
+}
+
+.cloud-1:before {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: 20px;
+}
+
+.cloud-1:after {
+    width: 150px;
+    height: 80px;
+    top: -40px;
+    right: 20px;
+}
+
+.cloud-2 {
+    width: 250px;
+    height: 70px;
+    top: 30%;
+    right: -250px;
+    animation: move-cloud-2 25s linear infinite;
+}
+
+.cloud-2:before {
+    width: 120px;
+    height: 120px;
+    top: -60px;
+    left: 30px;
+}
+
+.cloud-2:after {
+    width: 180px;
+    height: 90px;
+    top: -50px;
+    right: 30px;
+}
+
+@keyframes move-cloud-1 {
+    0% { left: -200px; }
+    100% { left: 100%; }
+}
+
+@keyframes move-cloud-2 {
+    0% { right: -250px; }
+    100% { right: 100%; }
+}
+
+/* Container Adjustments */
+.container {
+    text-align: center;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
 
 .container {
     text-align: center;
